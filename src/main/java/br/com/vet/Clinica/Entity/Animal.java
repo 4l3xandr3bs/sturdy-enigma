@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,14 +19,13 @@ public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
      
-    private Integer idCliente;
+    private Integer idAnimal;
     @Column(nullable = false, length = 40)
-    private String nomeCliente;
+    private String nomeAnimal;
      @Column(nullable = false, length = 40)
-    private String enderecoCliente;
-    @Column(nullable = false, length = 40)
-    private String telefoneCliente;
-    private Integer idadeCliente;
-    @Column(nullable = false, length  = 9)
-    private Integer cpfCliente;
+    private Integer idadeAnimal;
+    private String racaAnimal;
+    @ManyToOne
+  @JoinColumn(name = "idTutor-fk")
+private Tutor tutor;
 }
