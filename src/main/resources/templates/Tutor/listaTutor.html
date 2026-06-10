@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Listar Produtos</title>
+</head>
+<body>
+    <h2>Lista de Produtos cadastrados</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+
+       
+    </tr>
+
+    <tr th:each="tutor : ${tutores}">
+        <td th:text="${tutor.idTutor}"></td>
+        <td th:text="${tutor.nomeTutor}"></td>
+        <td th:text="${tutor.telefoneTutor}"></td>
+        <td th:text="${tutor.enderecoTutor}"></td>
+        <td>
+                <a th:href="@{/Tutores/editar/{id}(id=${tutor.id})}">Editar</a>
+                   
+                <a th:href="@{/Tutores/excluir/{id}(id=${tutor.id})}"
+                >Excluir</a>
+        </td>
+    </tr>
+
+</table>
+
+<br>
+<a th:href="@{/Tutores/formCadastrar}">Novo Produto</a>
+
+</body>
+</html>
