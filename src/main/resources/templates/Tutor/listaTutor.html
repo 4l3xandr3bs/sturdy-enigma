@@ -2,10 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página Listar Produtos</title>
+    <title>Página Listar Tutores</title>
 </head>
 <body>
-    <h2>Lista de Produtos cadastrados</h2>
+    <h2>Lista de Tutores</h2>
 
 <table border="1">
     <tr>
@@ -23,9 +23,8 @@
         <td th:text="${tutor.telefoneTutor}"></td>
         <td th:text="${tutor.enderecoTutor}"></td>
         <td>
-                <a th:href="@{/Tutores/editar/{id}(id=${tutor.id})}">Editar</a>
-                   
-                <a th:href="@{/Tutores/excluir/{id}(id=${tutor.id})}"
+            <a th:href="@{/Tutores/editar/{id}(id=${tutor.idTutor})}">Editar</a>
+                <a th:href="@{/Tutores/excluir/{id}(id=${tutor.idTutor})}"
                 >Excluir</a>
         </td>
     </tr>
@@ -33,7 +32,7 @@
 </table>
 
 <br>
-<a th:href="@{/Tutores/formCadastrar}">Novo Produto</a>
-
+<a th:href="@{/Tutores/Criar}">Novo Tutor</a>
+<a th:href="@{/Animais/formCadastrar}">Novo Animal</a>
 </body>
 </html>

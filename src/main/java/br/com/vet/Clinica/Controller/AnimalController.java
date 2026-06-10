@@ -15,7 +15,7 @@ import br.com.vet.Clinica.Service.AnimalService;
 import br.com.vet.Clinica.Service.TutorService;
 
 @Controller
-@RequestMapping("/Animais")
+@RequestMapping("/animais")
 public class AnimalController {
     
     @Autowired

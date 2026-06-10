@@ -14,7 +14,8 @@ import br.com.vet.Clinica.Entity.Tutor;
 import br.com.vet.Clinica.Service.TutorService;
 
 @Controller
-@RequestMapping("/Tutores")
+@RequestMapping("/tutores")  
+
 public class TutorController {
     
     @Autowired

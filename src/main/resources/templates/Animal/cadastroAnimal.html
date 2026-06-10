@@ -2,35 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página Cadastrar Tutor</title>
+    <title>Cadastro de Animal</title>
 </head>
 <body>
-    <h2>Cadastro de Tutor</h2>
+    <h2>Cadastro de Animal</h2>
 
-<form th:action="@{/Tutores/salvarTutor}" th:object="${tutor}" method="post">
+    <form th:action="@{/Animais/salvar}" th:object="${animal}" method="post">
+        
+        <label>Nome:</label>
+        <input type="text" th:field="*{nomeAnimal}" required />
+        <br><br>
 
-    <label>Nome:</label>
-    <input type="text" th:field="*{nomeTutor}" required />
-    <br><br>
+        <label>Idade:</label>
+        <input type="number" th:field="*{idadeAnimal}" required />
+        <br><br>
 
-    <label>Telefone:</label>
-    <input type="number" th:field="*{telefoneTutor}" />
-    <br><br>
+        <label>Raça:</label>
+        <input type="text" th:field="*{racaAnimal}" required />
+        <br><br>
 
-  
+        <label>Tutor:</label>
+        <select th:field="*{tutor.idTutor}" required>
+            <option value="">-- Selecione um Tutor --</option>
+            <option th:each="tutor : ${tutores}" 
+                    th:value="${tutor.idTutor}" 
+                    th:text="${tutor.nomeTutor}">
+            </option>
+        </select>
+        <br><br>
 
-    <label>ID:</label>
-    <input type="password" th:field="*{idTutor}" required />
-    <br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
 
-    <br><br>
-
-    <button type="submit">Cadastrar</button>
-
-</form>
-
-<br>
-<a th:href="@{/Tutores/listar}">Listar Tutores</a>
-
+    <br>
+    <a th:href="@{/Animais/listar}">Listar Animais</a>
 </body>
 </html>
