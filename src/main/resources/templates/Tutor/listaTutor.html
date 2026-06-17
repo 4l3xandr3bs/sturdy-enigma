@@ -7,32 +7,29 @@
 <body>
     <h2>Lista de Tutores</h2>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Telefone</th>
-        <th>Endereço</th>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+        </tr>
 
-       
-    </tr>
+        <tr th:each="tutor : ${tutores}">
+            <td th:text="${tutor.idTutor}"></td>
+            <td th:text="${tutor.nomeTutor}"></td>
+            <td th:text="${tutor.telefoneTutor}"></td>
+            <td th:text="${tutor.enderecoTutor}"></td>
+            <td>
+                <a th:href="@{/tutores/editar/{id}(id=${tutor.idTutor})}">Editar</a>
+                <a th:href="@{/tutores/excluir/{id}(id=${tutor.idTutor})}" onclick="return confirm('Deseja realmente excluir este Tutor?')">Excluir</a>
+            </td>
+        </tr>
+    </table>
 
-    <tr th:each="tutor : ${tutores}">
-        <td th:text="${tutor.idTutor}"></td>
-        <td th:text="${tutor.nomeTutor}"></td>
-        <td th:text="${tutor.telefoneTutor}"></td>
-        <td th:text="${tutor.enderecoTutor}"></td>
-        <td>
-            <a th:href="@{/Tutores/editar/{id}(id=${tutor.idTutor})}">Editar</a>
-                <a th:href="@{/Tutores/excluir/{id}(id=${tutor.idTutor})}"
-                >Excluir</a>
-        </td>
-    </tr>
-
-</table>
-
-<br>
-<a th:href="@{/Tutores/Criar}">Novo Tutor</a>
-<a th:href="@{/Animais/formCadastrar}">Novo Animal</a>
+    <br>
+    <a th:href="@{/tutores/criar}">Novo Tutor</a>
+    <a th:href="@{/animais/criar}">Novo Animal</a>
 </body>
 </html>

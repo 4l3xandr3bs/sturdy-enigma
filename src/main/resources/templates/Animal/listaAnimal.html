@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Página Listar Produtos</title>
+    <title>Listar Animais</title>
 </head>
 <body>
-    <h2>Lista de Produtos cadastrados</h2>
+    <h2>Lista de Animais cadastrados</h2>
 
-    <table border = "1">
+    <table border="1">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Raça</th>
-                <th>Tutor</th> 
+                <th>Tutor</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -23,19 +23,18 @@
                 <td th:text="${animal.idAnimal}"></td>
                 <td th:text="${animal.nomeAnimal}"></td>
                 <td th:text="${animal.idadeAnimal}"></td>
-                <td th:text="${animal.racaAnimal}"></td>   
+                <td th:text="${animal.racaAnimal}"></td>
                 <td th:text="${animal.tutor.nomeTutor}"></td>
-                
                 <td>
                     <a th:href="@{/animais/editar/{id}(id=${animal.idAnimal})}">Editar</a>
-                    <a th:href="@{/animais/excluir/{id}(id=${animal.idAnimal})} "onclick="return confirm('Deseja realmente excluir este Animal?')">Excluir</a>
+                    <a th:href="@{/animais/excluir/{id}(id=${animal.idAnimal})}" onclick="return confirm('Deseja realmente excluir este Animal?')">Excluir</a>
                 </td>
             </tr>
         </tbody>
     </table>
 
-<br>
-<a th:href="@{/Animais/formCadastrar}">Novo Animal</a>
-
+    <br>
+    <a th:href="@{/animais/criar}">Novo Animal</a>
+    <a th:href="@{/tutores/listar}">Listar Tutores</a>
 </body>
 </html>
